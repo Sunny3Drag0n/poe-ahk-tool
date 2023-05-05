@@ -25,7 +25,6 @@ useFlasksWhenReady(){
 		if (duration > 0) {
 			if (duration < A_TickCount - FlaskLastUsed[flask]) {
 				Send flask
-				ToolTip "Used " flask
 				onUseFlask(flask)
 			}
 		}
@@ -70,10 +69,12 @@ getMousePos() {
 }
 mainLoopFunc() {
 	Loop {
-		if (UseFlasks) {
-			useFlasksWhenReady()
+		if WinActive("Path of Exile") {
+			if (UseFlasks) {
+				useFlasksWhenReady()
+			}
+			VariableDelay := Random(-50, 50)
+			Sleep VariableDelay
 		}
-		VariableDelay := Random(-50, 50)
-		Sleep VariableDelay
 	}
 }
