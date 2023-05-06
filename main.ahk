@@ -1,6 +1,6 @@
 ;----------------------------------------------------------------------
 ;
-; PoE Flasks macro for AutoHotKey
+; PoE AutoHotKey tools
 ;
 ;----------------------------------------------------------------------
 ; Include
@@ -8,11 +8,12 @@
 #Include "core_functions.ahk"
 #Include "gui.ahk"
 #HotIf WinActive("Path of Exile")
+#SingleInstance Ignore
 ;----------------------------------------------------------------------
 ; Waiting system signals on active window change
 ;----------------------------------------------------------------------
 DllCall( "RegisterShellHookWindow", "UInt", A_ScriptHwnd)
-MsgNum := DllCall( "RegisterWindowMessage", "Str","SHELLHOOK" )
+MsgNum := DllCall( "RegisterWindowMessage", "Str", "SHELLHOOK")
 ;----------------------------------------------------------------------
 ; Hotkeys
 ; Keys used and monitored:
