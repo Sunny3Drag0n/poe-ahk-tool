@@ -9,6 +9,11 @@
 #Include "gui.ahk"
 #HotIf WinActive("Path of Exile")
 ;----------------------------------------------------------------------
+; Waiting system signals on active window change
+;----------------------------------------------------------------------
+DllCall( "RegisterShellHookWindow", "UInt", A_ScriptHwnd)
+MsgNum := DllCall( "RegisterWindowMessage", "Str","SHELLHOOK" )
+;----------------------------------------------------------------------
 ; Hotkeys
 ; Keys used and monitored:
 ; XButton1 - activate automatic flask usage
@@ -33,4 +38,5 @@ XButton1::{
 ;----------------------------------------------------------------------
 load_durations()
 createGui()
+OnMessage(MsgNum, onActiveWinChanged_GUI)
 mainLoopFunc()

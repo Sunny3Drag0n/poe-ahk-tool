@@ -8,6 +8,8 @@ global UseFlasks := false
 FlaskDelayMinLimit := [-99,-99,-99,-99,-99]
 FlaskDelayMaxLimit := [80,150,150,150,150]
 SetTimer () => ToolTip(), 1000
+HSHELL_RUDEAPPACTIVATED := 32772
+HSHELL_WINDOWACTIVATED := 4
 ;----------------------------------------------------------------------
 ; functions
 ;----------------------------------------------------------------------
@@ -73,8 +75,8 @@ mainLoopFunc() {
 			if (UseFlasks) {
 				useFlasksWhenReady()
 			}
-			VariableDelay := Random(-50, 50)
-			Sleep VariableDelay
 		}
+		VariableDelay := Random(-50, 50)
+		Sleep VariableDelay
 	}
 }
