@@ -9,6 +9,7 @@ interruptClicker() {
 	if (!clickerInterruptionFlag) {
 		clickerInterruptionFlag := true
 	}
+	Send "{Esc}"
 }
 ;----------------------------------------------------------------------
 ; class Position
