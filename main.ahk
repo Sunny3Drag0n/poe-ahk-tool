@@ -36,6 +36,7 @@ XButton1::{
 !g::getMousePos()
 !Left::sellStash.clickAllCells()
 !Right::buyStash.clickAllCells()
+Esc::interruptClicker()
 ;----------------------------------------------------------------------
 ; Start
 ;----------------------------------------------------------------------

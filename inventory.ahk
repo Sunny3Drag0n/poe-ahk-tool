@@ -1,18 +1,27 @@
-SetDefaultMouseSpeed 50
+;----------------------------------------------------------------------
+; global variables
+;----------------------------------------------------------------------
 SetMouseDelay 2
+clickerInterruptionFlag := false
+;----------------------------------------------------------------------
+interruptClicker() {
+	global clickerInterruptionFlag
+	if (!clickerInterruptionFlag) {
+		clickerInterruptionFlag := true
+	}
+}
+;----------------------------------------------------------------------
+; class Position
+;----------------------------------------------------------------------
 class Position {
     __new(x, y) {
         this.X := x
         this.Y := y
     }
 }
-clickerInterruptionFlag := false
-interruptClicker() {
-	global clickerInterruptionFlag
-	if (!clickerInterruptionFlag) {
-		clickerInterruptionFlag := true 
-	}
-}
+;----------------------------------------------------------------------
+; class Inventory
+;----------------------------------------------------------------------
 class Inventory {
     __new(hSize, vSize, topLeft) {
         this.hSize := hSize
@@ -42,39 +51,12 @@ class Inventory {
 				if (clickerInterruptionFlag) {
 					return
 				}
-				ToolTip "clickerInterruptionFlag " clickerInterruptionFlag
-				;if WinActive("Path of Exile") {
+				if WinActive("Path of Exile") {
 					this.clickElement(r,c)
-				;} else {
-				;	return
-				;}
+				} else {
+					return
+				}
 			}
 		}
 	}
 }
-
-
-sellStash := Inventory(12, 5, Position(1270, 588))
-buyStash := Inventory(12, 5, Position(306, 573))
-!Left::sellStash.clickAllCells()
-!Right::buyStash.clickAllCells()
-Esc::interruptClicker()
-
-
-
-
-
-
-
-
-
-
-
-getMousePos() {
-	MouseGetPos &xpos, &ypos 
-	ToolTip "The cursor is at X" xpos " Y" ypos
-	Send "^{Click " xpos " " ypos "}"
-	sleep Random(30, 50)
-	return
-}
-!g::getMousePos()
