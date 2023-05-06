@@ -34,6 +34,8 @@ XButton1::{
 	onStateChanged()
 }
 !g::getMousePos()
+!Left::sellStash.clickAllCells()
+!Right::buyStash.clickAllCells()
 ;----------------------------------------------------------------------
 ; Start
 ;----------------------------------------------------------------------
