@@ -25,7 +25,7 @@ load_durations() {
 	FlaskDurationInit[3] := IniRead("settings.ini", "flask_3", "duration")
 	FlaskDurationInit[4] := IniRead("settings.ini", "flask_4", "duration")
 	FlaskDurationInit[5] := IniRead("settings.ini", "flask_5", "duration")
-	MsgBox "flask_1: duration " FlaskDurationInit[1] ".`nflask_2: duration " FlaskDurationInit[2] ".`nflask_3: duration " FlaskDurationInit[3] ".`nflask_4: duration " FlaskDurationInit[4] ".`nflask_5: duration " FlaskDurationInit[5] "."
+	ToolTip "Load durations from settings.ini"
 }
 useFlasksWhenReady(){
 	for flask, duration in FlaskDuration {
